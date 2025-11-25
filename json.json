@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "afb9f132-614f-4984-aedc-18042dc741c7",
+		"name": "JSONPlaceholder",
+		"description": "Toto je testovacie/fake API určené na experimentovanie s HTTP requestami.\n\n**POST /posts**\n\n- API vždy vráti **201 Created** s id (napr. `id: 101`).\n    \n- **Upozornenie:** Položky sa **neukladajú** do databázy, pri GET requestoch sa nezobrazia.\n    \n- Použitie: testovanie POST requestov, validácia odpovedí a overenie status kódov.\n    \n\n**GET /posts**\n\n- Vracia zoznam prednastavených postov (1–100).\n    \n- Nové položky vytvorené cez POST sa nezobrazia.\n    \n\nAPI je vhodné na precvičovanie requestov a overovanie dát, nie na trvalé ukladanie dát",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24524389",
+		"_collection_link": "https://wta222.postman.co/workspace/8ae660d3-b0b3-456f-8dfa-333cf365976c/collection/24524389-afb9f132-614f-4984-aedc-18042dc741c7?action=share&source=collection_link&creator=24524389"
+	},
+	"item": [
+		{
+			"name": "All posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post number 23",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/23",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"new post\",\r\n  \"body\": \"hellooou\",\r\n  \"userId\": 11\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check if new post is saved",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"new post\",\r\n  \"body\": \"hellooou\",\r\n  \"userId\": 11\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Post 23",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":23,\r\n    \"title\": \"Novy nazov\",\r\n    \"body\": \"Novy obsah\",\r\n    \"userId\": 1\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/23",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete post 45",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/45",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"45"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Non-existent Post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/9999",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"9999"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
